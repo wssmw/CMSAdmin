@@ -1,18 +1,22 @@
 import React from "react";
-import { Navigate } from "react-router";
 
-// const Login = React.lazy(()=>import('../view/login'))
-import Login from "../view/login";
-
+const Login = React.lazy(()=>import('../view/login'))
+const Layout = React.lazy(()=>import('../layout/index'))
+const NotFound = React.lazy(()=>import('../view/NotFound/index'))
 const routes = [
     {
         path:'/',
-        element:<Navigate to='/login'></Navigate>
+        element:<Layout/>,
+        children:[]
     },
     {
         path:'/login',
         element:<Login/>,
     },
+    {
+        path:'*',
+        element:<NotFound/>
+    }
 ]
 
 export default routes
