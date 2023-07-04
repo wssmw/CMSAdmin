@@ -1,0 +1,71 @@
+html,
+body,
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+table,
+img,
+div,
+dl,
+dt,
+dd,
+pre,
+input,
+textarea,
+blockquote,
+th,
+td,
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html,
+body {
+  background: #fff;
+  font-family: "PingFangSC-Regular", "PingFang SC", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+ul,
+ol,
+dl,
+li,
+dt,
+dd {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+img {
+  border: none;
+}
+input {
+  outline: none;
+}
+
+#root {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+:global {
+  img {
+    object-fit: cover;
+  }
+}
