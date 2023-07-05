@@ -1,4 +1,3 @@
-import { Empty } from 'antd'
 import React, { memo } from 'react'
 
 const NotFound = memo(() => {

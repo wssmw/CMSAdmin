@@ -1,9 +1,11 @@
 import React, { memo } from 'react'
 import { Outlet } from 'react-router'
-import { Layout as layout } from 'antd';
-const { Header, Footer, Sider, Content } = layout;
+import { Layout } from 'antd';
+import { LayoutWrapper } from './style';
+const { Header, Footer, Sider, Content } = Layout;
 
-const Layout = memo(() => {
+const MyLayout = memo(() => {
+  console.log(123);
   const headerStyle = {
     textAlign: 'center',
     color: '#fff',
@@ -25,24 +27,19 @@ const Layout = memo(() => {
     color: '#fff',
     backgroundColor: '#3ba0e9',
   };
-  const footerStyle = {
-    textAlign: 'center',
-    color: '#fff',
-    backgroundColor: '#7dbcea',
-  };
   return (
-    <div>
+    <LayoutWrapper>
       <Layout>
-      <Sider style={siderStyle}>Sider</Sider>
-      <Layout>
-        <Header style={headerStyle}>Header</Header>
-        <Content style={contentStyle}>Content</Content>
-        <Footer style={footerStyle}>Footer</Footer>
+        <Sider style={siderStyle}>Sider</Sider>
+        <Layout>
+          <Header style={headerStyle}>Header</Header>
+          <Content style={contentStyle}>
+            <Outlet/>
+          </Content>
+        </Layout>
       </Layout>
-      </Layout>
-      <Outlet/>
-    </div>
+    </LayoutWrapper>
   )
 })
 
-export default Layout
+export default MyLayout
