@@ -7,4 +7,7 @@ export const LayoutWrapper = styled.div`
   left:0;
   right:0;
   background-color:#fff;
+  .layout {
+    height:100%
+  }
 `

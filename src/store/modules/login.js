@@ -7,7 +7,6 @@ export const fetchHomeDataAction = createAsyncThunk("fetchdata", (payload, { dis
   //   dispatch(changeGoodPriceInfoAction(res))
   // })
   getAuthMenuListApi().then(res=>{
-    console.log("router:",res);
     dispatch(changeMenuAction(res.data))
   })
 })
@@ -17,7 +16,7 @@ const homeSlice = createSlice({
   name: "home",
   initialState: {
     token:'',
-    menu:[]
+    menu:[],
   },
   reducers: {
     changeTokenAction(state, { payload }) {
@@ -26,13 +25,14 @@ const homeSlice = createSlice({
     },
     changeMenuAction(state,{payload}){
       state.menu = payload
-    }
+    },
+
   },
 })
 
 export const { 
   changeTokenAction, 
-  changeMenuAction
+  changeMenuAction,
 } = homeSlice.actions
 
 export default homeSlice.reducer

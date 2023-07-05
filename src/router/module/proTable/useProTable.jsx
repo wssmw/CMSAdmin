@@ -1,7 +1,7 @@
-import UseProTAble from '../../../view/proTable/useProTable'
+import UseProTAble from '../../../view/proTable/useProTable/detail'
 
 export default {
-  path:'/proTable/index',
+  path:'/proTable/useProTable/detail/:id',
   id:'UseProTAble',
   element:<UseProTAble/>
 }

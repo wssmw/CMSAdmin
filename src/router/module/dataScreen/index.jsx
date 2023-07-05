@@ -1,7 +1,7 @@
 import DataScreen from '../../../view/dataScreen'
 
 export default {
-  path:'/dataScreen/index',
+  path:'/dataScreen',
   id:'DataScreen',
   element:<DataScreen/>
 }

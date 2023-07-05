@@ -13,7 +13,6 @@ export function useLoadRouter() {
   }), shallowEqual)
 
   useEffect(() => {
-    console.log("menu", menu);
     if (menu) {
       const newRoutes = mapMenusToRouter(menu)
       const router = handleMergeRoutes(routes, newRoutes)

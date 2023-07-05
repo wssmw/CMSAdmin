@@ -1,7 +1,7 @@
-import Data from '../../../view/dashboard/dataVisualize'
+import DataVisuslize from '../../../view/dashboard/dataVisualize'
 
 export default {
   path:'/dashboard/dataVisualize',
-  id:'DataVisualize',
-  element:<Data/>
+  id:'DataVisuslize',
+  element:<DataVisuslize/>
 }
