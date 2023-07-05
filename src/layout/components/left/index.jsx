@@ -1,13 +1,16 @@
 import { Menu } from 'antd'
 import  { createElement,memo } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { LeftWrapper } from './style'
 import * as Icon from '@ant-design/icons/lib'
 import { useNavigate } from 'react-router'
+import { changeTabsAction } from '../../../store/modules/main'
 const Left = memo((props) => {
   const navgete = useNavigate()
-  const {menu} = useSelector((state)=>({
-    menu:state.login.menu
+  const dispatch = useDispatch()
+  const {menu,tabs} = useSelector((state)=>({
+    menu:state.login.menu,
+    tabs:state.main.tabs
   }))
   function getItem(menu) {
     let Item = []
@@ -27,10 +30,38 @@ const Left = memo((props) => {
     return Item
   }
   const items = getItem(menu)
-  console.log(menu);
+  const getTabs = (path,menu) =>{
+    let goal = {}
+    // debugger
+    for(const item of menu){
+      if(!path.includes(item.path)){
+        continue
+      }
+      if(path==item.path){
+        goal = item
+      }
+      if(item.children&&item.children.length!=0){
+        goal = getTabs(path,item.children)
+      }
+    }
+    return goal
+  }
   const menuClick = (e) =>{
+    const goal = getTabs(e.key,menu)
+    console.log("goal",goal);
+    // let 
+    let newtabs = [...tabs]
+    let tab = {}
+    tab.key = e.key
+    tab.label = (
+      <div>
+        {createElement(Icon[goal.meta.icon])}
+        {goal.meta.title}
+      </div>
+    )
+    newtabs.push(tab)
+    dispatch(changeTabsAction(newtabs))
     navgete(e.key)
-    console.log(e);
   }
   return (
     <LeftWrapper>

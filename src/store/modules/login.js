@@ -1,19 +1,15 @@
-// import { getHomeGoodPriceData } from '@/services'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getAuthMenuListApi } from '../../service/module/login';
 
 export const fetchHomeDataAction = createAsyncThunk("fetchdata", (payload, { dispatch }) => {  
-  // getHomeGoodPriceData().then(res => {
-  //   dispatch(changeGoodPriceInfoAction(res))
-  // })
   getAuthMenuListApi().then(res=>{
     dispatch(changeMenuAction(res.data))
   })
 })
 
 
-const homeSlice = createSlice({
-  name: "home",
+const loginSlice = createSlice({
+  name: "login",
   initialState: {
     token:'',
     menu:[],
@@ -33,6 +29,6 @@ const homeSlice = createSlice({
 export const { 
   changeTokenAction, 
   changeMenuAction,
-} = homeSlice.actions
+} = loginSlice.actions
 
-export default homeSlice.reducer
+export default loginSlice.reducer

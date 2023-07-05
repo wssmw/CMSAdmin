@@ -19,7 +19,7 @@ const MyLayout = memo(() => {
           <Left collapsed = {collapsed}/>
         </Sider>
         <Layout>
-          <Header><Top toggleCollapsed = {toggleCollapsed} collapsed={collapsed}/></Header>
+          <Header style={{height:"100px",padding:"0px",backgroundColor:"white"}}><Top toggleCollapsed = {toggleCollapsed} collapsed={collapsed}/></Header>
           <Content>
             <Outlet/>
           </Content>
