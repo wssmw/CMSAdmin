@@ -61,8 +61,8 @@ const Project = memo(() => {
     <ProjectWrapper>
       <Card className='card' title={"工程项目"} extra={<a href="#">更多项目</a>}>
         {
-          projectData.map((item) => (
-            <Card.Grid style={gridStyle}>
+          projectData.map((item,index) => (
+            <Card.Grid style={gridStyle} key={index}>
               <div style={{display:"flex",alignItems:"center"}}>
                 <span style={{fontSize:"30px",marginRight:"20px",color:item.color}}>{createElement(Icon[item.icon])}</span>
                 <span><a className='link' href={item.link}>{item.title}</a></span>

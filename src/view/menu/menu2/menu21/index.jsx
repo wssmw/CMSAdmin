@@ -1,8 +1,11 @@
 import React, { memo } from 'react'
+import Menu from '../../../../components/menu'
 
 const Menu21 = memo(() => {
   return (
-    <div>Menu21</div>
+    <div>
+      <Menu title = {"menu21"}/>
+    </div>
   )
 })
 

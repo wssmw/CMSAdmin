@@ -20,7 +20,7 @@ const loginSlice = createSlice({
       state.token = payload
     },
     changeMenuAction(state,{payload}){
-      state.menu = payload
+      state.menu = [...payload]
     },
 
   },

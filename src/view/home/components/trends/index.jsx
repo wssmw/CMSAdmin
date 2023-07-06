@@ -5,7 +5,8 @@ import { Card } from 'antd';
 const Trend = memo(() => {
   const gridStyle = {
     width: '100%',
-    padding:"15px"
+    padding:"15px",
+    backgroundColor:"white"
   };
   const dynamicData = [
     {
@@ -49,9 +50,9 @@ const Trend = memo(() => {
     <TrendstWrapper>
       <Card className='card' title={"动态"}>
         {
-          dynamicData.map((item) => (
-            <Card.Grid style={gridStyle}>
-              <div className="content" style={{display:'flex'}}>
+          dynamicData.map((item,index) => (
+            <Card.Grid style={gridStyle} key={index}>
+              <div style={{display:'flex'}}>
                 <div className="left" style={{margin:'0 15px'}}>
                   <img style={{ width: "40px", borderRadius: "50%" }} src="/img/avatar.jpg" alt="" />
                 </div>

@@ -50,23 +50,21 @@ const Left = memo((props) => {
   }
   const menuClick = (e) =>{
     const goal = getTabs(e.key,menu)
-    console.log(menu);
-    console.log("goal",goal);
-    // let 
     let newtabs = [...tabs]
     let tab = {}
     tab.key = e.key
     tab.label = (
-      <div>
+      <>
         {goal.meta.icon==='chromeOutlined'?createElement(Icon["ChromeFilled"]):createElement(Icon[goal.meta.icon])}
         {goal.meta.title}
-      </div>
+      </>
     )
     let ishas = false
     // debugger
     for(const tab of newtabs){
       if(tab.key===e.key){
         ishas = true
+        break
       }
     }
     if(!ishas){

@@ -1,8 +1,9 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { RightWrapper } from './style'
 import { Tabs, Badge, Dropdown, Popover, Empty } from 'antd'
 import {
-  UserOutlined, FormOutlined,
+  UserOutlined, 
+  FormOutlined,
   PoweroffOutlined,
   BellOutlined
 } from '@ant-design/icons'

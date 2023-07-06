@@ -1,11 +1,10 @@
-import React, { memo, useState } from 'react'
+import { memo, useState } from 'react'
 import { Outlet } from 'react-router'
 import { Layout } from 'antd';
 import { LayoutWrapper } from './style';
 import Left from './components/left';
 import Top from './components/top';
-import { Footer } from 'antd/es/layout/layout';
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content,Footer } = Layout;
 
 const MyLayout = memo(() => {
   const [collapsed, setCollapsed] = useState(false);
@@ -21,8 +20,8 @@ const MyLayout = memo(() => {
         </Sider>
         <Layout className='layout1'>
           <Header style={{height:"100px",padding:"0px",backgroundColor:"white"}}><Top toggleCollapsed = {toggleCollapsed} collapsed={collapsed}/></Header>
-          <Content style={{backgroundColor:'#f0f2f5'}}>
-            <div className='content'>
+          <Content className='layout-content' style={{backgroundColor:'#f0f2f5'}}>
+            <div className='content' >
               <Outlet/>
             </div>
           </Content>

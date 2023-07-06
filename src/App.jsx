@@ -1,11 +1,10 @@
 import { useLocation, useNavigate, useRoutes } from "react-router-dom";
 import { AppWrapper } from "./style";
 import { useEffect } from "react";
-import axios from 'axios'
 import {useLoadRouter} from "./hooks/useLoadRouter";
 import cache from "./utils/cache";
 import { fetchHomeDataAction } from "./store/modules/login";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 // import { judgeRouter } from "./utils/BeforeEnter";
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
         if(location.pathname!='/login'&&cache.getCache('token')==null){
           navigate('/login')
         }
-        dispatch(fetchHomeDataAction())
+        dispatch(fetchHomeDataAction('1'))
       },[navigate,location])
   return (
     <AppWrapper>

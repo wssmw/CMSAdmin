@@ -1,7 +1,5 @@
+import { HomeFilled } from '@ant-design/icons'
 import { createSlice } from '@reduxjs/toolkit'
-import * as Icon from '@ant-design/icons/lib'
-
-
 
 const mainSlice = createSlice({
   name: "main",
@@ -10,11 +8,11 @@ const mainSlice = createSlice({
     tabs: [
       {
         key: '/home/index',
-        label: (
-          <div>
-            <Icon.HomeFilled />工作台
-          </div>
-        ),
+        label: <>
+              <HomeFilled />
+              <span>工作台</span>
+            </>
+        ,
         closable: false,
       }
     ],
@@ -22,9 +20,9 @@ const mainSlice = createSlice({
   },
   reducers: {
     changeTabsAction(state, { payload }) {
-      state.tabs = payload
+      state.tabs = [...payload]
     },
-    changeTabsActiveKeyAction (state,{payload}) {
+    changeTabsActiveKeyAction (state,{ payload }) {
       state.tabsActivekey = payload
     }
   },

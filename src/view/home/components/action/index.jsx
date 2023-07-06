@@ -60,8 +60,8 @@ const Action = memo(() => {
     <div>
       <Card title={"快捷操作"}>
       {
-          shortcutKeyList.map((item) => (
-            <Card.Grid style={gridStyle}>
+          shortcutKeyList.map((item,index) => (
+            <Card.Grid key={index} style={gridStyle}>
               <div style={{ cursor: "pointer"}}>
                 <div style={{color:item.color,fontSize:"26px"}} onClick={item.onClick}>{createElement(Icon[item.icon])}</div>
                 <div>{item.title}</div>
