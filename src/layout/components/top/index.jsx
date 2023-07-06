@@ -2,15 +2,19 @@ import React, { createElement, memo, useEffect, useState } from 'react'
 import { TopWrapper } from './style'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Breadcrumb, Divider, Tabs } from 'antd';
-import { useLocation } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Icon from '@ant-design/icons/lib'
 import Right from './components/right';
+import { changeTabsAction, changeTabsActiveKeyAction } from '../../../store/modules/main';
 const Top = memo((props) => {
   const location = useLocation();
-  const { menu,tabs } = useSelector((state) => ({
+  const dispatch = useDispatch()
+  const navgate = useNavigate()
+  const { menu,tabs,tabsActivekey } = useSelector((state) => ({
     menu: state.login.menu,
-    tabs:state.main.tabs
+    tabs:state.main.tabs,
+    tabsActivekey:state.main.tabsActivekey
   }))
   const [item, setItem] = useState([])
   const toggleCollapsed = () => {
@@ -47,6 +51,27 @@ const Top = memo((props) => {
     }
     return resItem
   }
+  const tabsClick = (e) =>{
+    console.log(e);
+    dispatch(changeTabsActiveKeyAction(e))
+    navgate(e)
+  }
+  const tabsDelete = (e) =>{
+    let newTabs = [...tabs]
+    let index = -1
+    for(let i=0;i<newTabs.length;i++){
+      if(newTabs[i].key===e){
+        newTabs.splice(i,1)
+        index = i
+        break
+      }
+    }
+    dispatch(changeTabsAction(newTabs))
+    if(e===tabsActivekey){
+      navgate(newTabs[index-1].key)
+      dispatch(changeTabsActiveKeyAction(newTabs[index-1].key))
+    }
+  }
   useEffect(() => {
     let newItem = getItem(location.pathname, menu, [])
     console.log(newItem);
@@ -73,7 +98,12 @@ const Top = memo((props) => {
       </div>
       <Divider style={{margin:0}}/>
       <div className="bottom">
-        <Tabs type="editable-card" items={tabs} hideAdd/>
+        <Tabs type="editable-card" 
+        items={tabs} hideAdd 
+        activeKey={tabsActivekey} 
+        onChange={e=>tabsClick(e)}
+        onEdit = {e=>tabsDelete(e)}
+        />
       </div>
     </TopWrapper>
   )

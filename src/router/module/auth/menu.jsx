@@ -1,7 +1,7 @@
 import Menu from '../../../view/auth/menu'
 
 export default  {
-  path:'/assembly/menu',
+  path:'/auth/menu',
   id:'menu',
   element:<Menu/>
 }

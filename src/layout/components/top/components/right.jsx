@@ -70,7 +70,7 @@ const Right = memo(() => {
         </Badge>
       </Popover>
       <div className="name">WSS</div>
-      <Dropdown menu={{ items }}>
+      <Dropdown menu={{ items }} trigger={['click']}>
         <div className="avatar">
           <img src="/img/avatar.jpg" alt="" />
         </div>

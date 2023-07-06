@@ -1,7 +1,7 @@
 import Button from '../../../view/auth/button'
 
 export default  {
-  path:'/assembly/button',
+  path:'/auth/button',
   id:'Button',
   element:<Button/>
 }
