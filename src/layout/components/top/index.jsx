@@ -1,4 +1,4 @@
-import  { createElement, memo, useEffect, useState } from 'react'
+import  { createElement, memo, useEffect, useRef, useState } from 'react'
 import { TopWrapper } from './style'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Breadcrumb, Divider, Tabs } from 'antd';
@@ -8,6 +8,8 @@ import * as Icon from '@ant-design/icons/lib'
 import Right from './components/right';
 import { changeTabsAction, changeTabsActiveKeyAction } from '../../../store/modules/main';
 const Top = memo((props) => {
+  const collapsedRef = useRef(null)
+  const breadcrumbRef = useRef(null)
   const location = useLocation();
   const dispatch = useDispatch()
   const navgate = useNavigate()
@@ -81,11 +83,11 @@ const Top = memo((props) => {
   return (
     <TopWrapper>
       <div className="top">
-        <div className="left">
+        <div className="left" ref={collapsedRef}>
           <button className='collapsed' onClick={toggleCollapsed}>
             {props.collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           </button>
-          <div className="Breadcrumb">
+          <div className="Breadcrumb" ref={breadcrumbRef}>
             <Breadcrumb
               separator=">"
               items={item}

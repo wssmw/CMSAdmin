@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useRef } from 'react'
 import { RightWrapper } from './style'
 import { Tabs, Badge, Dropdown, Popover, Empty } from 'antd'
 import {
@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons'
 
 const Right = memo(() => {
+  const bellOutlinedRef = useRef()
   // 头像拓展部分
   //缩小 <CompressOutlined />
   // 放大 <ExpandOutlined />
@@ -67,7 +68,7 @@ const Right = memo(() => {
     <RightWrapper>
       <Popover trigger="click" content={content}>
         <Badge count={5}>
-          <BellOutlined style={{ fontSize: "25px" }} />
+          <BellOutlined style={{ fontSize: "25px" }} ref={bellOutlinedRef}/>
         </Badge>
       </Popover>
       <div className="name">WSS</div>
@@ -79,5 +80,4 @@ const Right = memo(() => {
     </RightWrapper>
   )
 })
-
 export default Right

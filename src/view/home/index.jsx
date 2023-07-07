@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import { HomeWrapper } from './style'
-import { Card, Col, Row } from 'antd'
+import { Col, Row } from 'antd'
 import Header from './components/header'
 import Project from './components/project'
 import Action from './components/action'
