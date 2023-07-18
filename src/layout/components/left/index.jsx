@@ -4,13 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { LeftWrapper } from './style'
 import * as Icon from '@ant-design/icons/lib'
 import { useNavigate } from 'react-router'
-import { changeTabsAction, changeTabsActiveKeyAction } from '../../../store/modules/main'
+
 const Left = memo((props) => {
   const navgete = useNavigate()
   const dispatch = useDispatch()
-  const {menu,tabs,tabsActivekey} = useSelector((state)=>({
+  const {menu,tabsActivekey} = useSelector((state)=>({
     menu:state.login.menu,
-    tabs:state.main.tabs,
     tabsActivekey:state.main.tabsActivekey
   }))
   // 获取menu的所需数据
@@ -32,6 +31,9 @@ const Left = memo((props) => {
     return Item
   }
   const items = getItem(menu)
+  // const menuClick = (e) =>{
+  //   MenuToTabbar(e.key)
+  // }
   const getTabs = (path,menu) =>{
     let goal = {}
     // debugger
@@ -49,29 +51,6 @@ const Left = memo((props) => {
     return goal
   }
   const menuClick = (e) =>{
-    const goal = getTabs(e.key,menu)
-    let newtabs = [...tabs]
-    let tab = {}
-    tab.key = e.key
-    tab.label = (
-      <>
-        {goal.meta.icon==='chromeOutlined'?createElement(Icon["ChromeFilled"]):createElement(Icon[goal.meta.icon])}
-        {goal.meta.title}
-      </>
-    )
-    let ishas = false
-    // debugger
-    for(const tab of newtabs){
-      if(tab.key===e.key){
-        ishas = true
-        break
-      }
-    }
-    if(!ishas){
-      newtabs.push(tab)
-    }
-    dispatch(changeTabsAction(newtabs))
-    dispatch(changeTabsActiveKeyAction(e.key))
     navgete(e.key)
   }
   return (

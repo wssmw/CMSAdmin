@@ -14,7 +14,7 @@ const Action = memo(() => {
       title: "主控台",
       color: "#68c755",
       onClick: () => {
-        navgate("/dashboard/dataVisualize");
+        navgate("/dashboard/dataVisualize")
       }
     },
     {
