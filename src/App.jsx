@@ -20,7 +20,6 @@ function App() {
     const getTabs = (path,menu) =>{
       console.log('path',path);
       let goal = {}
-      // debugger
       for(const item of menu){
         if(!path.includes(item.path)){
           continue
@@ -30,6 +29,7 @@ function App() {
         }
         if(item.children&&item.children.length!==0){
           goal = getTabs(path,item.children)
+          if(goal!={})return goal
         }
       }
       return goal
@@ -62,11 +62,11 @@ function App() {
     }
     useEffect(()=>{
         //路由守卫判断
-        if(location.pathname!='/login'&&cache.getCache('token')==null){
+        if(location.pathname!=='/login'&&cache.getCache('token')===null){
           navgate('/login')
         }
         else {
-          if(location.pathname=='/'){
+          if(location.pathname==='/'){
             navgate('/home/index')
           }else {
             if(menu.length){

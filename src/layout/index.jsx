@@ -1,20 +1,22 @@
 import { memo, useState } from 'react'
-import { Outlet } from 'react-router'
+import { Outlet, useLocation } from 'react-router'
 import { Layout } from 'antd';
 import { LayoutWrapper } from './style';
 import Left from './components/left';
 import Top from './components/top';
+import DataScreen from '../view/dataScreen';
 const { Header, Sider, Content,Footer } = Layout;
 
 const MyLayout = memo(() => {
   const [collapsed, setCollapsed] = useState(false);
-
+  const {pathname} = useLocation();
   const toggleCollapsed = () =>{
     setCollapsed(!collapsed)
   }
   return (
     <LayoutWrapper>
-      <Layout className='layout'>
+      {
+        pathname==='/dataScreen'?<DataScreen/>:<Layout className='layout'>
         <Sider style={{backgroundColor:"white"}}  collapsed={collapsed}>
           <Left collapsed = {collapsed}/>
         </Sider>
@@ -30,6 +32,8 @@ const MyLayout = memo(() => {
           </Footer>
         </Layout>
       </Layout>
+      }
+      
     </LayoutWrapper>
   )
 })

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { Space,Input,QRCode } from 'antd'
+import { Space,QRCode } from 'antd'
 import { QRcodeWrapper } from './style';
 const QRcode = memo(() => {
   const [text, setText] = React.useState('https://ant.design/');
