@@ -15,8 +15,7 @@ const Action = memo(() => {
       title: "主控台",
       color: "#68c755",
       onClick: () => {
-        console.log(Github.prototype);
-        // navgate("/dashboard/dataVisualize")
+        navgate("/dashboard/dataVisualize")
       }
     },
     {

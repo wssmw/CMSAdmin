@@ -5,6 +5,7 @@ import MaleFemaleRatioChart from './components/MaleFemaleRatioChart'
 import titlebg from './images/dataScreen-title.png'
 import AgeRatioChart from './components/AgeRatioChart'
 
+
 const DataScreen = memo(() => {
   let timer = null
   const [time,setTime] = useState()
@@ -21,6 +22,7 @@ const DataScreen = memo(() => {
       setTime(new Date().toString());
     },1000)
     window.addEventListener('resize',()=>{
+
       if(dataScreenRef.current){
         dataScreenRef.current.style.transform = `scale(${getScale()})`
       }
@@ -62,7 +64,7 @@ const DataScreen = memo(() => {
               <div class="dataScreen-center">
                 <div class="dataScreen-main-title">
                   <span>男女比例</span>
-                  <img src={titlebg} alt="" />
+                  <img src="./images/dataScreen-title.png" alt="" />
                 </div>
                 {/* <!-- chart区域 --> */}
                 <div class="dataScreen-main-chart">
@@ -77,6 +79,12 @@ const DataScreen = memo(() => {
                 {/* <!-- chart区域 --> */}
                 <div class="dataScreen-main-chart">
                   <AgeRatioChart />
+
+                  <img src="./images/dataScreen-title.png" alt="" />
+                </div>
+                {/* <!-- chart区域 --> */}
+                <div class="dataScreen-main-chart">
+                  {/* <AgeRatioChart ref="AgeRatioRef" /> */}
                 </div>
               </div>
             </div>
@@ -115,6 +123,7 @@ const DataScreen = memo(() => {
                 <div class="dataScreen-main-title">
                   <span>热门景区排行</span>
                   <img src={titlebg} alt="" />
+
                 </div>
                 {/* <!-- chart区域 --> */}
                 <div class="dataScreen-main-chart">
