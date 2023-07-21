@@ -1,6 +1,7 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 import { DataScreenWrapper } from './style'
 import RealTimeAccessChart from './components/RealTimeAccessChart'
+import MaleFemaleRatioChart from './components/MaleFemaleRatioChart'
 
 const DataScreen = memo(() => {
   let timer = null
@@ -65,7 +66,7 @@ const DataScreen = memo(() => {
                 </div>
                 {/* <!-- chart区域 --> */}
                 <div class="dataScreen-main-chart">
-                  {/* <MaleFemaleRatioChart ref="MaleFemaleRatioRef" /> */}
+                  <MaleFemaleRatioChart />
                 </div>
               </div>
               <div class="dataScreen-bottom">
