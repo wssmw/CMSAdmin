@@ -8,6 +8,7 @@ import headerCenterWarn from "./images/dataScreen-header-warn-bg.png"
 import mainLeftTop from "./images/dataScreen-main-lt.png"
 import mainLeftCenter from "./images/dataScreen-main-lc.png"
 import mainLeftBottom from "./images/dataScreen-main-lb.png"
+import mapbg from "./images/map-title-bg.png"
 export const DataScreenWrapper = styled.div`
   position:absolute;
   top:0;
@@ -181,7 +182,7 @@ export const DataScreenWrapper = styled.div`
 						font-size: 14px;
 						color: #ffffff;
 						letter-spacing: 5px;
-						background: url("./images/map-title-bg.png") no-repeat;
+						background: url(${mapbg}) no-repeat;
 						background-size: 100% 100%;
 					}
 					.dataScreen-alarm {

@@ -60,7 +60,6 @@ const AgeRatioChart = memo(() => {
       formatter: function (name) {
         let text = "";
         ageData.forEach((val) => {
-            console.log(val);
           if (val.name === name) {
             text = " " + name + "　 " + val.percentage;
           }
@@ -91,7 +90,6 @@ const AgeRatioChart = memo(() => {
           show: true,
           color: "#fff",
           formatter: function (params) {
-            console.log("params",params);
             return params.data.percentage;
           },
           rich: {

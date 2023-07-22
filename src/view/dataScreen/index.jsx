@@ -4,9 +4,16 @@ import RealTimeAccessChart from './components/RealTimeAccessChart'
 import MaleFemaleRatioChart from './components/MaleFemaleRatioChart'
 import titlebg from './images/dataScreen-title.png'
 import AgeRatioChart from './components/AgeRatioChart'
+import OverNext30Chart from './components/OverNext30Chart'
+import HotPlateChart from './components/HotPlateChart'
+import AnnualUseChart from './components/AnnualUseChart'
+import PlatformSourceChart from './components/PlatformSourceChart'
+import MapChart from './components/MapChart'
+import { useNavigate } from 'react-router'
 
 
 const DataScreen = memo(() => {
+  const navgate = useNavigate();
   let timer = null
   const [time,setTime] = useState()
   
@@ -18,6 +25,11 @@ const DataScreen = memo(() => {
     return ww < wh ? ww : wh;
   };
   useEffect(()=>{
+    if (dataScreenRef.current) {
+      dataScreenRef.current.style.transform = `scale(${getScale()}) `;
+      dataScreenRef.current.style.width = `1920px`;
+      dataScreenRef.current.style.height = `1080px`;
+    }
     timer = setInterval(()=>{
       setTime(new Date().toString());
     },1000)
@@ -34,120 +46,120 @@ const DataScreen = memo(() => {
   return (
     <DataScreenWrapper >
       <div className="dataScreen_content" ref={dataScreenRef}>
-        <div class="dataScreen_header">
-          <div class="header-lf">
-            <span class="header-screening">首页</span>
+        <div className="dataScreen_header">
+          <div className="header-lf">
+            <span className="header-screening" onClick={()=>navgate('/')}>首页</span>
           </div>
-          <div class="header-ct">
-            <div class="header-ct-title">
+          <div className="header-ct">
+            <div className="header-ct-title">
               <span>智慧旅游可视化大数据展示平台</span>
-              <div class="header-ct-warning">平台高峰预警信息（2条）</div>
+              <div className="header-ct-warning">平台高峰预警信息（2条）</div>
             </div>
           </div>
-          <div class="header-rg">
-            <span class="header-download">统计报告</span>
-            <span class="header-time">当前时间：{ time }</span>
+          <div className="header-rg">
+            <span className="header-download">统计报告</span>
+            <span className="header-time">当前时间：{ time }</span>
           </div>
         </div>
         <div className="dataScreen_main">
-            <div class="dataScreen-lf">
-              <div class="dataScreen-top">
-                <div class="dataScreen-main-title">
+            <div className="dataScreen-lf">
+              <div className="dataScreen-top">
+                <div className="dataScreen-main-title">
                   <span>实时游客统计</span>
                   <img src={titlebg} alt="" />
                 </div>
                 {/* <!-- chart区域 --> */}
-                <div class="dataScreen-main-chart">
+                <div className="dataScreen-main-chart">
                   <RealTimeAccessChart data = {0.5}/>
                 </div>
               </div>
-              <div class="dataScreen-center">
-                <div class="dataScreen-main-title">
+              <div className="dataScreen-center">
+                <div className="dataScreen-main-title">
                   <span>男女比例</span>
                   <img src="./images/dataScreen-title.png" alt="" />
                 </div>
                 {/* <!-- chart区域 --> */}
-                <div class="dataScreen-main-chart">
+                <div className="dataScreen-main-chart">
                   <MaleFemaleRatioChart />
                 </div>
               </div>
-              <div class="dataScreen-bottom">
-                <div class="dataScreen-main-title">
+              <div className="dataScreen-bottom">
+                <div className="dataScreen-main-title">
                   <span>年龄比例</span>
                   <img src={titlebg} alt="" />
                 </div>
                 {/* <!-- chart区域 --> */}
-                <div class="dataScreen-main-chart">
+                <div className="dataScreen-main-chart">
                   <AgeRatioChart />
 
                   <img src="./images/dataScreen-title.png" alt="" />
                 </div>
                 {/* <!-- chart区域 --> */}
-                <div class="dataScreen-main-chart">
+                <div className="dataScreen-main-chart">
                   {/* <AgeRatioChart ref="AgeRatioRef" /> */}
                 </div>
               </div>
             </div>
-            <div class="dataScreen-ct">
-              <div class="dataScreen-map">
-                <div class="dataScreen-map-title">景区实时客流量</div>
+            <div className="dataScreen-ct">
+              <div className="dataScreen-map">
+                <div className="dataScreen-map-title">景区实时客流量</div>
                 {/* <!-- <vue3-seamless-scroll
                   :list="alarmData"
-                  class="dataScreen-alarm"
+                  className="dataScreen-alarm"
                   :step="0.5"
                   :hover="true"
                   :limitScrollNum="3"
                 >
-                  <div class="dataScreen-alarm">
-                    <div class="map-item" v-for="item in alarmData" :key="item.id">
+                  <div className="dataScreen-alarm">
+                    <div className="map-item" v-for="item in alarmData" :key="item.id">
                       <img src="./images/dataScreen-alarm.png" alt="" />
-                      <span class="map-alarm sle">{{ item.label }} 预警：{{ item.warnMsg }}</span>
+                      <span className="map-alarm sle">{{ item.label }} 预警：{{ item.warnMsg }}</span>
                     </div>
                   </div>
                 </vue3-seamless-scroll> --> */}
-                {/* <mapChart ref="MapChartRef" /> */}
+                <MapChart />
               </div>
-              <div class="dataScreen-cb">
-                <div class="dataScreen-main-title">
+              <div className="dataScreen-cb">
+                <div className="dataScreen-main-title">
                   <span>未来30天游客量趋势图</span>
                   <img src={titlebg} alt="" />
                 </div>
                 {/* <!-- chart区域 --> */}
-                <div class="dataScreen-main-chart">
-                  {/* <OverNext30Chart ref="OverNext30Ref" /> */}
+                <div className="dataScreen-main-chart">
+                  <OverNext30Chart />
                 </div>
               </div>
             </div>
-            <div class="dataScreen-rg">
-              <div class="dataScreen-top">
-                <div class="dataScreen-main-title">
+            <div className="dataScreen-rg">
+              <div className="dataScreen-top">
+                <div className="dataScreen-main-title">
                   <span>热门景区排行</span>
                   <img src={titlebg} alt="" />
 
                 </div>
                 {/* <!-- chart区域 --> */}
-                <div class="dataScreen-main-chart">
-                  {/* <HotPlateChart ref="HotPlateRef" /> */}
+                <div className="dataScreen-main-chart">
+                  <HotPlateChart />
                 </div>
               </div>
-              <div class="dataScreen-center">
-                <div class="dataScreen-main-title">
+              <div className="dataScreen-center">
+                <div className="dataScreen-main-title">
                   <span>年度游客量对比</span>
                   <img src={titlebg} alt="" />
                 </div>
                 {/* <!-- chart区域 --> */}
-                <div class="dataScreen-main-chart">
-                  {/* <AnnualUseChart ref="AnnualUseRef" /> */}
+                <div className="dataScreen-main-chart">
+                  <AnnualUseChart />
                 </div>
               </div>
-              <div class="dataScreen-bottom">
-                <div class="dataScreen-main-title">
+              <div className="dataScreen-bottom">
+                <div className="dataScreen-main-title">
                   <span>预约渠道数据统计</span>
                   <img src={titlebg} alt="" />
                 </div>
                 {/* <!-- chart区域 --> */}
-                <div class="dataScreen-main-chart">
-                  {/* <PlatformSourceChart ref="PlatformSourceRef" /> */}
+                <div className="dataScreen-main-chart">
+                  <PlatformSourceChart />
                 </div>
               </div>
             </div>

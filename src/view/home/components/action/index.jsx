@@ -2,7 +2,6 @@ import { Card } from 'antd'
 import React, { createElement, memo } from 'react'
 import { useNavigate } from 'react-router';
 import * as Icon from '@ant-design/icons/lib'
-import Github from '../github';
 const Action = memo(() => {
   const navgate = useNavigate()
   const gridStyle = {
