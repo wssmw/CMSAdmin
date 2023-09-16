@@ -63,7 +63,7 @@ function App() {
     useEffect(()=>{
         //路由守卫判断
         if(location.pathname!=='/login'&&cache.getCache('token')===null){
-          navgate('/login')
+          navgate('/login') 
         }
         else {
           if(location.pathname==='/'){
