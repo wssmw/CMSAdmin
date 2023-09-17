@@ -22,7 +22,9 @@ const BasicForm = memo(() => {
     },
   };
   /* eslint-enable no-template-curly-in-string */
+  const click = () =>{
 
+  }
   const onFinish = (values) => {
     console.log(values);
   };
@@ -123,7 +125,7 @@ const BasicForm = memo(() => {
             <Input.TextArea showCount maxLength={100} />
           </Form.Item>
           <Form.Item style={{marginLeft:"170px"}}>
-            <Button style={{margin:"0 20px"}} type="primary" htmlType="submit">
+            <Button style={{margin:"0 20px"}} type="primary" htmlType="submit" onClick={click}> 
               提交
             </Button>
             <Button type="primary" htmlType="submit">
