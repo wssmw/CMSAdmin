@@ -1,7 +1,11 @@
 import styled from "styled-components";
 export const AboutWrapper = styled.div`
-    background-color:red;
-    .ant-checkbox-inner {
-        background-color:rgba(0,0,0,0)
+   .Descriptions {
+    background-color: #fff;
+    padding:20px;
+    margin:10px 0;
+    p {
+        margin:10px 0;
     }
+   }
 `

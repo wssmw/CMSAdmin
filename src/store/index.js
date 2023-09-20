@@ -6,7 +6,11 @@ const store = configureStore({
   reducer: {
     login: loginReducer,
     main:mainReducer
-  }
+  },
+  middleware:getDefaultMiddleware => getDefaultMiddleware({
+    //关闭redux序列化检测
+    serializableCheck:false
+  })
 })
 
 export default store

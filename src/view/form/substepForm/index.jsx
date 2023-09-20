@@ -1,12 +1,15 @@
 /** @format */
 
-import { Alert, Button, Form, Input, Select, Space, Steps } from "antd";
+import { Alert, Steps } from "antd";
 import React, { memo } from "react";
 import { useState } from "react";
 import SubStepOne from "./components/SubstepOne";
+import SubStepTwo from "./components/SubstepTwo";
+import SubStepThree from "./components/SubstepThree";
 
 const SubStep = memo(() => {
   const [current,setCurrent] = useState(0)
+  const [formData,setFormData] = useState({})
   const steps = [
     {
       title: "填写转账信息",
@@ -27,6 +30,9 @@ const SubStep = memo(() => {
   const prevHandle = () =>{
     setCurrent(current-1)
   }
+  const setCurrentToZero = () =>{
+    setCurrent(0)
+  }
   return (
     <div
       style={{
@@ -39,37 +45,20 @@ const SubStep = memo(() => {
     >
       <Alert
         style={{ width: "100%" }}
-        message="动态表单 🍓🍓🍓🍇🍇🍇"
-        description="表单页用于向用户动态收集信息。"
+        message="分步表单🍇🍇🍇"
+        description="将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。"
         type="info"
       />
       <Steps style={{width:'900px',marginTop:'20px'}} current={current} items={steps}></Steps>
-      <Form labelCol={{ span: 8 }}>
-        <Form.Item label={'付款账户'} has-feedback rules={[{ required: true, message: '请选择付款账户' }]}>
-          <Select options={[{label:'laoy0702@163.com',value:'laoy0702@163.com'},{label:'986953860@qq.com',value:'986953860@qq.com'}]}>
-          </Select>
-        </Form.Item>
-        <Form.Item label={'收款账户'} has-feedback rules={[{ required: true, message: '请选择付款账户' }]}>
-          <Space.Compact style={{width:'100%'}}>
-            <Select style={{width:'100px'}} defaultValue={'微信'} options={[{label:'微信'},{label:'支付宝'}]} />
-            <Input/>
-          </Space.Compact>
-        </Form.Item>
-        <Form.Item label={"收款人姓名"}>
-          <Input/>
-        </Form.Item>
-        <Form.Item label={"转账金额"}>
-          <Input prefix="￥"/>
-        </Form.Item>
-      </Form>
-      <div style={{marginTop:'20px'}}>
-        {
-          current!=steps.length-1&&<Button htmlType="submit">Next</Button>
-        }
-        {
-          current!=0&&<Button onClick={prevHandle}>prev</Button>
-        }
-      </div>
+      {
+        current===0&&<SubStepOne nextHandele={nextHandele} setFormData = {setFormData}/>
+      }
+      {
+        current===1&&<SubStepTwo formData={formData} prevHandle={prevHandle} nextHandele={nextHandele}/>
+      }
+      {
+        current===2&&<SubStepThree formData={formData} setCurrentToZero={setCurrentToZero}/>
+      }
     </div>
   );
 });

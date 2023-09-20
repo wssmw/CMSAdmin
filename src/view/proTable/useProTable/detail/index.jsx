@@ -1,8 +1,18 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
+import { getTableList } from '../../../../service/module/table'
+import { Form } from 'antd'
 
 const UseProTable = memo(() => {
+  useEffect(()=>{
+    getTableList().then(res=>{
+      console.log(res,'res');
+    })
+  })
   return (
-    <div>UseProTable</div>
+    <div>
+      <div className="action">
+      </div>
+    </div>
   )
 })
 

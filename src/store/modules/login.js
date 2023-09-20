@@ -827,9 +827,9 @@ const data = [{
 ]
 
 export const fetchHomeDataAction = createAsyncThunk("fetchdata", (payload, { dispatch }) => {  
-  // getAuthMenuListApi().then(res=>{
-    dispatch(changeMenuAction(data))
-  // })
+  getAuthMenuListApi().then(res=>{
+    dispatch(changeMenuAction(res.data))
+  })
 })
 
 
