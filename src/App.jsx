@@ -76,7 +76,6 @@ function App() {
         }
         dispatch(fetchHomeDataAction('1'))
       },[navgate,location])
-      console.log('测试emoji')
   return (
     <AppWrapper>
       {useRoutes(routes)}
