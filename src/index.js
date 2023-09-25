@@ -5,7 +5,6 @@ import { HashRouter } from 'react-router-dom';
 import App from './App';
 import store from './store';
 import './assets/css/index.css'
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 console.log(1);
 root.render(
