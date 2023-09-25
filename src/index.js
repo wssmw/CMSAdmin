@@ -5,7 +5,6 @@ import { HashRouter } from 'react-router-dom';
 import App from './App';
 import store from './store';
 import './assets/css/index.css'
-console.log('测试emoji')
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
