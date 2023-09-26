@@ -3,7 +3,7 @@ import  { createElement,memo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LeftWrapper } from './style'
 import * as Icon from '@ant-design/icons/lib'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
 const Left = memo((props) => {
   const navgete = useNavigate()
@@ -36,7 +36,6 @@ const Left = memo((props) => {
   // }
   const getTabs = (path,menu) =>{
     let goal = {}
-    // debugger
     for(const item of menu){
       if(!path.includes(item.path)){
         continue

@@ -1,6 +1,6 @@
 import { Card } from 'antd'
 import React, { createElement, memo } from 'react'
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import * as Icon from '@ant-design/icons/lib'
 const Action = memo(() => {
   const navgate = useNavigate()

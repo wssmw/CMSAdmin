@@ -2,7 +2,7 @@ import  { createElement, memo, useEffect, useRef, useState } from 'react'
 import { TopWrapper } from './style'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Breadcrumb, Divider, Tabs } from 'antd';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Icon from '@ant-design/icons/lib'
 import Right from './components/right';

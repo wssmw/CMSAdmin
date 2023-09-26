@@ -9,7 +9,7 @@ import HotPlateChart from './components/HotPlateChart'
 import AnnualUseChart from './components/AnnualUseChart'
 import PlatformSourceChart from './components/PlatformSourceChart'
 import MapChart from './components/MapChart'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
 
 const DataScreen = memo(() => {

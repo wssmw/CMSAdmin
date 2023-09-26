@@ -1,5 +1,5 @@
 import { memo, useState } from 'react'
-import { Outlet, useLocation } from 'react-router'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Layout } from 'antd';
 import { LayoutWrapper } from './style';
 import Left from './components/left';

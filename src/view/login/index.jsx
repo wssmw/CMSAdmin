@@ -5,7 +5,6 @@ import AccountLogin from './c-cpns/AccountLogin'
 import QRcode from './c-cpns/QRcodeLogin'
 
 const Login = memo(() => {
-
   const items = [
     {
       key: '1',
