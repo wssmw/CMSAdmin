@@ -86,12 +86,10 @@ const DynamicFrom = memo(() => {
       right: "rightValue",
     };
     let newTableList = [...tableList];
-    console.log(newTableList[index]);
     newTableList[index][s[position]] = e;
     setTableList(newTableList);
   };
   const addHandle = () => {
-    console.log("这里执行");
     let newTableList = [...tableList];
     newTableList.push({
       leftValue: "station",
@@ -99,7 +97,6 @@ const DynamicFrom = memo(() => {
       rightValue: "",
     });
     setTableList(newTableList);
-    console.log(newTableList, tableList);
   };
   const deleteHandle = (index) => {
     let newTableList = [...tableList];

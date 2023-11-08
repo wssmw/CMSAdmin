@@ -6,7 +6,6 @@ import React, { memo } from "react";
 const SubStepTwo = memo((props) => {
   const { formData, prevHandle,nextHandele } = props
   const submit = () =>{
-    console.log('111');
     nextHandele()
   }
   return (

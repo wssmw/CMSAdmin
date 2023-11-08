@@ -1,6 +1,5 @@
 class LocalCache {
   setCache(key, value) {
-    console.log(key,value);
     if (!value) {
       throw new Error('value error:value必须有值')
     } else {

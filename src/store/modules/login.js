@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getAuthMenuListApi } from '../../service/module/login';
+import cache from '../../utils/cache';
 const data = [{
   "path": "/home/index",
   "name": "home",
@@ -828,24 +829,24 @@ const data = [{
 
 export const fetchHomeDataAction = createAsyncThunk("fetchdata", (payload, { dispatch }) => {  
   getAuthMenuListApi().then(res=>{
-    dispatch(changeMenuAction(res.data))
+    dispatch(changeMenuAction(data))
   })
 })
 
-
+console.log(cache.getCache('menu'),'menu');
 const loginSlice = createSlice({
   name: "login",
   initialState: {
     token:'',
-    menu:[],
+    menu:cache.getCache('menu')||[],
   },
   reducers: {
     changeTokenAction(state, { payload }) {
-      console.log("payload",payload);
       state.token = payload
     },
     changeMenuAction(state,{payload}){
-      state.menu = [...payload]
+      state.menu = payload
+      cache.setCache('menu',payload)
     },
 
   },

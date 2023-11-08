@@ -12,14 +12,17 @@ const AccountLogin = memo(() => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const onFinish = async (e) => {
-    const { data } = await loginApi({ ...e, password: md5(e.password) })
+    const { data } = await loginApi({ ...e,
+      // password: md5(e.password) 
+      password: 'e10adc3949ba59abbe56e057f20f883e'
+    })
     // 存token
     dispatch(changeTokenAction(data.access_token))
-    cache.setCache("token",data.access_token)
     // 获取动态路由
     dispatch(fetchHomeDataAction())
+    cache.setCache("token",data.access_token)
     // 跳转页面
-    navigate('/home/index')
+    navigate('/')
   }
   return (
     <AccountWrapper>

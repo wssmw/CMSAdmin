@@ -34,7 +34,6 @@ const UseProTable = memo(() => {
     {
       title:'用户姓名',
       dataIndex:'username',
-      key:'username',
       width:100,
       fixed:'left',
       align:'center'
@@ -42,14 +41,12 @@ const UseProTable = memo(() => {
     {
       title:'id',
       dataIndex:'id',
-      key:'id',
       width:200,
       align:'center'
     },
     {
       title:'email',
       dataIndex:'email',
-      key:'email',
       width:200,
       align:'center'
     },
@@ -95,21 +92,18 @@ const UseProTable = memo(() => {
       title:'角色',
       align:'center',
       dataIndex:'rolename',
-      key:'rolename',
       width:200
     },
     {
       title:'身份证',
       align:'center',
       dataIndex:'idCard',
-      key:'idCard',
       width:200
     },
     {
       title:'性别',
       align:'center',
       dataIndex:'gender',
-      key:'gender',
       render:(text)=><span>{text===1?'男':'女'}</span>,
       width:200
     },
@@ -117,7 +111,6 @@ const UseProTable = memo(() => {
       title:'年龄',
       align:'center',
       dataIndex:'user',
-      key:'idCard',
       render:(text)=><span>{text.detail.age}</span>,
       width:200
     },
@@ -125,20 +118,17 @@ const UseProTable = memo(() => {
       title:'居住地',
       align:'center',
       dataIndex:'address',
-      key:'address',
       width:200
     },
     {
       title:'用户状态',
       align:'center',
       dataIndex:'status',
-      key:'status',
       width:200
     },
     {
       title:'操作',
       align:'center',
-      key: 'action',
       fixed: 'right',
       width:400,
       render:()=>{

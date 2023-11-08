@@ -19,7 +19,6 @@ const IconSelect = memo(() => {
   ];
   const itemClick = (icon) => { 
     setInputValue(icon)
-    console.log(icon);
   }
   return (
     <div style={{ height: "100%",textAlign:"center", backgroundColor: "white", padding: "20px" }}>

@@ -7,9 +7,16 @@ import {
   PoweroffOutlined,
   BellOutlined
 } from '@ant-design/icons'
+import { useNavigate } from 'react-router'
+import { useDispatch } from 'react-redux'
+import { changeTokenAction } from '../../../../store/modules/login'
+import cache from '../../../../utils/cache'
 
 const Right = memo(() => {
   const bellOutlinedRef = useRef()
+  const navgate = useNavigate();
+  const dispatch = useDispatch()
+
   // 头像拓展部分
   //缩小 <CompressOutlined />
   // 放大 <ExpandOutlined />
@@ -59,9 +66,20 @@ const Right = memo(() => {
       children: <Empty description={"暂无代办"}/>,
     },
   ];
+  
+  const exit = (e)=>{
+    console.log(e);
+  }
+  const onClick = ({key}) =>{
+    if(key==3){
+      cache.deleteCache('token')
+      dispatch(changeTokenAction(''))
+      navgate('/login')
+    }
+  }
   // message部分
   const content = (
-    <Tabs defaultActiveKey="1" items={message} />
+    <Tabs defaultActiveKey="1" items={message} onClick={exit}/>
   )
 
   return (
@@ -72,7 +90,7 @@ const Right = memo(() => {
         </Badge>
       </Popover>
       <div className="name">WSS</div>
-      <Dropdown menu={{ items }} trigger={['click']}>
+      <Dropdown menu={{ items,onClick }} trigger={['click']}>
         <div className="avatar">
           <img src="/img/avatar.jpg" alt="" />
         </div>
