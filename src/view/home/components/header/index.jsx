@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import { Card, Col, Row } from 'antd'
+import CountUp from '../../../../components/CountUp'
 const Header = memo(() => {
   return (
     <div>
@@ -23,15 +24,22 @@ const Header = memo(() => {
               <Col span={12} style={{display:"flex"}}>
                 <div style={{flex:1}}>
                   <div>项目数</div>
-                  <div style={{fontSize:"18px",fontWeight:"600"}}>1600</div>
+                  <div style={{fontSize:"18px",fontWeight:"600"}}>
+                    <CountUp end={1600} time={2}/>
+                  </div>
                 </div>
                 <div style={{flex:1}}>
                   <div>待办</div>
-                  <div  style={{fontSize:"18px",fontWeight:"600"}}>9/16</div>
+                  <div  style={{fontSize:"18px",fontWeight:"600",display:'flex'}}>
+                    <CountUp end={9} time={2}/>/
+                    <CountUp end={16} time={2}/>
+                  </div>
                 </div>
                 <div style={{flex:1}}>
                   <div>消息</div>
-                  <div style={{fontSize:"18px",fontWeight:"600"}}>1,139</div>
+                  <div style={{fontSize:"18px",fontWeight:"600"}}>
+                    <CountUp end={1139} time={2}/>
+                  </div>
                 </div>
               </Col>
             </Row>

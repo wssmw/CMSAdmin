@@ -103,7 +103,7 @@ const Top = memo((props) => {
           items={tabs.map(({title,icon,key,closable}) => {
             return {
               label: (
-                <span>
+                <span className="tabsIcon">
                   {icon==='chromeOutlined'?createElement(Icon["ChromeFilled"]):createElement(Icon[icon])}
                   {title}
                 </span>

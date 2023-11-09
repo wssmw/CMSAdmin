@@ -13,6 +13,7 @@ export const TopWrapper = styled.div`
       justify-content:center;
       align-items:center;
       .collapsed {
+        display:flex;
         width: 22px;
         height: 22px;
         font-size:22px;
@@ -21,11 +22,17 @@ export const TopWrapper = styled.div`
         cursor: pointer;
       }
       .Breadcrumb {
-
+        .ant-breadcrumb-link {
+          display:flex;
+          align-items:center;
+        }
       }
     }
   }
   .bottom {
-
+    .tabsIcon {
+      display:flex;
+      align-items:center;
+    }
   }
 `

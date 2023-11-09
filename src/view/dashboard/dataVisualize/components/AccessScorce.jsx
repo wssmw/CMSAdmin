@@ -44,10 +44,14 @@ const AccessScorce = memo(() => {
 				lineHeight: 17
 			}
 		},
+		grid: {
+			right:'5',
+			containLabel: true,
+		  },
 		series: [
 			{
 				type: "pie",
-				radius: [0, 100],
+				radius: [0, 80],
 				labelLine: {
 					length: 20,
 					length2: 30
@@ -82,17 +86,17 @@ const AccessScorce = memo(() => {
 			}
 		]
 	};
+
   useEffect(()=>{
-    let myEcharts = echarts.init(document.querySelector('.AccessScorce_main'))
-    myEcharts.setOption(option)
-    return () => {
-      myEcharts.dispose()
-    }
+    setTimeout(()=>{
+		let myEcharts = echarts.init(document.querySelector('.AccessScorce_main'))
+    	myEcharts.setOption(option)
+	},20)
   })
   return (
     <div>
       <Card title="访问来源">
-        <div className="AccessScorce_main" style={{width:"100%",height:"350px"}}></div>
+        <div className="AccessScorce_main" style={{width:"100%",height:"300px"}}></div>
       </Card>
     </div>
   )

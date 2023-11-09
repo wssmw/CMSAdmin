@@ -3,8 +3,9 @@ import React, { memo, useEffect, useRef } from 'react'
 import * as echarts from 'echarts';
 const AreaRanking = memo(() => {
   const timeInter = useRef()
+  const echartRef = useRef()
+
   useEffect(() => {
-    let myChart = echarts.init(document.querySelector('.AreaRanking-main'));
     /* 数据 */
     let nameList = ["广东省", "湖南省", "江西省", "广西省", "浙江省", "福建省", "湖北省", "重庆省", "云南省", "河南省"]; // 订单区域
     let valueList = [94, 92, 88, 77, 76, 65, 44, 43, 32, 21]; // 对应数值
@@ -191,8 +192,12 @@ const AreaRanking = memo(() => {
         }
       ]
     };
-    myChart.setOption(option);
+    let myChart
+    setTimeout(()=>{
+      myChart = echarts.init(echartRef.current);
 
+      myChart.setOption(option);
+    },20)
     // 循环更新数据
     timeInter.value = setInterval(() => {
       getCurrentData();
@@ -212,7 +217,7 @@ const AreaRanking = memo(() => {
       });
     }, 3000);
     return () => {
-      myChart.dispose()
+      // myChart.dispose()
       timeInter.value && clearInterval(timeInter.value); //销毁
       timeInter.value = null;
     }
@@ -220,7 +225,7 @@ const AreaRanking = memo(() => {
   return (
     <div>
       <Card title="区域排行">
-        <div className="AreaRanking-main" style={{ height: "350px" }}></div>
+        <div ref={echartRef} className="AreaRanking-main" style={{ height: "300px" }}></div>
       </Card>
     </div>
   )

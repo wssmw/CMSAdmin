@@ -11,6 +11,7 @@ export const LayoutWrapper = styled.div`
     height:100%;
     .layout1 {
       .content {
+        min-width:1000px;
         background-color:#f0f2f5;
         padding:5px;
       overflow-y:auto;

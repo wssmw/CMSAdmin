@@ -1,10 +1,12 @@
 import { memo, useState } from 'react'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Layout } from 'antd';
 import { LayoutWrapper } from './style';
 import Left from './components/left';
 import Top from './components/top';
+import ThemeDrawer from '../components/ThemeDrawer'
 import DataScreen from '../view/dataScreen';
+import ThemeButton from '../components/ThemeButton';
 const { Header, Sider, Content,Footer } = Layout;
 
 const MyLayout = memo(() => {
@@ -31,9 +33,11 @@ const MyLayout = memo(() => {
             <a href="https://gitee.com/wangsaiqimengwen/cmsadmin" style={{color:"#858585",fontSize:"14px",lineHeight:"30px"}}>2023 © Admin By laoy0702@163.com.</a>
           </Footer>
         </Layout>
+        
       </Layout>
       }
-      
+      <ThemeButton/>
+      <ThemeDrawer/>
     </LayoutWrapper>
   )
 })

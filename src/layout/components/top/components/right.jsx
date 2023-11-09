@@ -14,8 +14,8 @@ import cache from '../../../../utils/cache'
 
 const Right = memo(() => {
   const bellOutlinedRef = useRef()
-  const navgate = useNavigate();
   const dispatch = useDispatch()
+  // const navgate = useNavigate();
 
   // 头像拓展部分
   //缩小 <CompressOutlined />
@@ -74,7 +74,7 @@ const Right = memo(() => {
     if(key==3){
       cache.deleteCache('token')
       dispatch(changeTokenAction(''))
-      navgate('/login')
+      // navgate('/login')
     }
   }
   // message部分
