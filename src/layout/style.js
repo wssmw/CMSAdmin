@@ -10,6 +10,17 @@ export const LayoutWrapper = styled.div`
   .layout {
     height:100%;
     .layout1 {
+      .tabs {
+        border-top:1px solid #f1f1f1;
+        background:white;
+        .ant-tabs-nav {
+          margin:0;
+        }
+        .tabsIcon {
+          display:flex;
+          align-items:center;
+        } 
+      }
       .content {
         min-width:1000px;
         background-color:#f0f2f5;

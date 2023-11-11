@@ -3,28 +3,23 @@
 import { createElement, memo, useEffect, useRef, useState } from "react";
 import { TopWrapper } from "./style";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Breadcrumb, Divider, Tabs } from "antd";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Breadcrumb } from "antd";
+import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as Icon from "@ant-design/icons/lib";
 import Right from "./components/right";
-import {
-  changeTabsAction,
-  changeTabsActiveKeyAction,
-} from "../../../store/modules/main";
+import { changeCollapsedMenuAction } from "../../../store/modules/theme";
 const Top = memo((props) => {
   const collapsedRef = useRef(null);
   const breadcrumbRef = useRef(null);
   const location = useLocation();
   const dispatch = useDispatch();
-  const navgate = useNavigate();
   const menu = useSelector((state) => state.login.menu);
-  const tabs = useSelector((state) => state.main.tabs);
-  const tabsActivekey = useSelector((state) => state.main.tabsActivekey);
   const [item, setItem] = useState([]);
-  const toggleCollapsed = () => {
-    props.toggleCollapsed();
-  };
+  const  collapsedMenu  = useSelector((state) => ( state.theme.collapsedMenu))
+  const breadcrumb = useSelector((state)=>state.theme.breadcrumb)
+  const breadcrumbIcon = useSelector((state)=>state.theme.breadcrumbIcon)
+
   // 生成面包屑所需要格式的函数
   const getTitle = (icon, title) => {
     if (icon == "chromeOutlined") {
@@ -32,7 +27,7 @@ const Top = memo((props) => {
     }
     return (
       <>
-        {createElement(Icon[icon])}
+        {breadcrumbIcon&&createElement(Icon[icon])}
         <span>{title}</span>
       </>
     );
@@ -56,67 +51,29 @@ const Top = memo((props) => {
     }
     return resItem;
   };
-  const tabsClick = (e) => {
-    dispatch(changeTabsActiveKeyAction(e));
-    navgate(e);
-  };
-  const tabsDelete = (e) => {
-    let newTabs = [...tabs];
-    let index = -1;
-    for (let i = 0; i < newTabs.length; i++) {
-      if (newTabs[i].key === e) {
-        newTabs.splice(i, 1);
-        index = i;
-        break;
-      }
-    }
-    dispatch(changeTabsAction(newTabs));
-    if (e === tabsActivekey) {
-      navgate(newTabs[index - 1].key);
-      dispatch(changeTabsActiveKeyAction(newTabs[index - 1].key));
-    }
-  };
   useEffect(() => {
     let newItem = getItem(location.pathname, menu, []);
     setItem(newItem);
   }, [location]);
-
+  useEffect(()=>{
+    let newItem = getItem(location.pathname, menu, []);
+    setItem(newItem);
+  },[breadcrumbIcon])
   return (
     <TopWrapper>
       <div className="top">
         <div className="left" ref={collapsedRef}>
-          <button className="collapsed" onClick={toggleCollapsed}>
-            {props.collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+          <button className="collapsed" onClick={()=>dispatch(changeCollapsedMenuAction(!collapsedMenu))}>
+            {collapsedMenu? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           </button>
           <div className="Breadcrumb" ref={breadcrumbRef}>
-            <Breadcrumb separator=">" items={item} />
+           
+            { breadcrumb&&<Breadcrumb separator=">" items={item} />}
           </div>
         </div>
         <div className="right">
           <Right />
         </div>
-      </div>
-      <Divider style={{ margin: 0 }} />
-      <div className="bottom">
-        <Tabs
-          type="editable-card"
-          items={tabs.map(({title,icon,key,closable}) => {
-            return {
-              label: (
-                <span className="tabsIcon">
-                  {icon==='chromeOutlined'?createElement(Icon["ChromeFilled"]):createElement(Icon[icon])}
-                  {title}
-                </span>
-              ),
-              key,
-              closable
-            };
-          })}
-          hideAdd
-          activeKey={tabsActivekey}
-          onChange={(e) => tabsClick(e)}
-          onEdit={(e) => tabsDelete(e)}
-        />
       </div>
     </TopWrapper>
   );

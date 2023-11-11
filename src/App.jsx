@@ -3,11 +3,16 @@ import { AppWrapper } from "./style";
 import { useEffect } from "react";
 import {useLoadRouter} from "./hooks/useLoadRouter";
 import cache from "./utils/cache";
+import { ConfigProvider } from "antd";
+import { useTheme } from './hooks/useTheme';
+
 
 function App() {
     const routes = useLoadRouter();
     const navgate = useNavigate();
     const location = useLocation();
+    const { initTheme } = useTheme()
+    initTheme()
     useEffect(()=>{
         //路由守卫判断
         if(location.pathname!=='/login'&&cache.getCache('token')===undefined){
@@ -21,7 +26,9 @@ function App() {
     },[navgate])
     return (
       <AppWrapper>
-        {useRoutes(routes)}
+        <ConfigProvider direction='ltr'>
+          {useRoutes(routes)}
+        </ConfigProvider>
       </AppWrapper>
     );
 }

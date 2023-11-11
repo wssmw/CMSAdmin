@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const LeftWrapper = styled.div`
-  /* display: flex;
-  flex-direction:column; */
   height:100%;
   .logo {
     display: flex;

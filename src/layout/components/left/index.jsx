@@ -13,6 +13,8 @@ const Left = memo((props) => {
   const dispatch = useDispatch();
   const menu = useSelector(state=>state.login.menu)
   const tabsActivekey = useSelector(state=>state.main.tabsActivekey)
+  const styleSetting = useSelector(state=>state.theme.styleSetting)
+  const  collapsedMenu  = useSelector((state) => ( state.theme.collapsedMenu))
   // 获取menu的所需数据
   function getItem(menu) {
     return menu.map((item) => ({
@@ -72,10 +74,10 @@ const Left = memo((props) => {
     <LeftWrapper>
       <div className="logo">
         <img src="/img/logo.jpg" alt="" />
-        {!props.collapsed && <div className="dec">Admin</div>}
+        {!collapsedMenu && <div className="dec">Admin</div>}
       </div>
       <div className="scroll">
-        <Menu items={items} mode='inline' onClick={(e)=>menuClick(e)} selectedKeys={[tabsActivekey]}/>
+        <Menu theme={styleSetting} items={items} mode='inline' onClick={(e)=>menuClick(e)} selectedKeys={[tabsActivekey]}/>
       </div>
     </LeftWrapper>
   );

@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-export const ThemeDrawerWrapper = styled.div`
+export const DrawerContentWrapper = styled.div`
     .divider {
-        color:red;
+        font-size:14px;
+        .anticon {
+            margin:0 10px;
+        }
     }
     .setting-drawer-block-checbox {
         display: flex;
-        margin: 20px 0;
+        margin: 20px;
+        justify-content:space-between;
         .ant-gw-checkbox-item {
             position: relative;
             width: 44px;
@@ -40,7 +44,7 @@ export const ThemeDrawerWrapper = styled.div`
                 bottom: 4px;
                 font-size: 14px;
                 font-weight: 700;
-                color: var(--ant-primary-color);
+                color: #142ed9;
                 pointer-events: none;
             }
             &:hover {
@@ -60,14 +64,14 @@ export const ThemeDrawerWrapper = styled.div`
             }
         }
         .ant-gw-checkbox-item-realDark {
-            background-color: rgba(#001529, 0.85);
+            background-color: rgba(00,15,29, 0.85);
             &::before {
                 z-index: 1;
                 content: "";
-                background-color: rgba(#001529, 0.65);
+                background-color: rgba(00,15,29, 0.65);
             }
             &::after {
-                background-color: rgba(#001529, 0.65);
+                background-color: rgba(00,15,29, 0.65);
             }
         }
         .ant-gw-checkbox-item-side,
@@ -123,5 +127,44 @@ export const ThemeDrawerWrapper = styled.div`
             }
         }
     }
-   
+    .style-setting {
+        .ant-gw-checkbox-item {
+            margin-right: 24px;
+        }
+    }
+    .layout-checbox {
+        justify-content: space-between;
+    }
+    .theme-item-vertical {
+        display:flex;
+        justify-content:space-between;
+       
+        .icon {
+            margin:5px;
+            width:20px;
+            height:20px;
+            position:relative;
+            cursor: pointer;
+            .select-icon {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left:0;
+                top:0;
+                font-size: 14px;
+                color: white;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+        }
+        
+    }
+    .theme-item-Horizontal {
+        margin:20px 10px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+
+    }
 `
