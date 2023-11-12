@@ -1,26 +1,8 @@
 # Admin
 
-<!-- ![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E7%BB%B4%E6%8A%A4%E4%B8%AD-brightgreen) -->
-<!--![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E5%B0%B1%E7%BB%AA-orange)-->
-
-![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E4%B8%AD-green)<!--![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E5%B0%B1%E7%BB%AA-orange)-->
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
-[![](https://img.shields.io/crates/l/s)](https://img.shields.io/crates/l/s)
-![](https://img.shields.io/badge/Vue-%5E3.2.47-success)
-![](https://img.shields.io/badge/Node-%20%5E16.18.0-brightgreen)
-![](https://img.shields.io/badge/Vite-%20%5E4.1.4-brightgreen)
-![](https://img.shields.io/badge/npm-%5E9.5.1-orange)
-
----
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/957f0479-bb9e-498b-bc9d-2ba1b513dd54/deploy-status)](https://app.netlify.com/sites/cheery-unicorn-b76380/deploys)
-[![DeepSource](https://deepsource.io/gh/School-of-Website-Engineering/Admin.svg/?label=active+issues&show_trend=true&token=y_ZjbP8TmVGwwkuKPdl67NZO)](https://deepsource.io/gh/School-of-Website-Engineering/Admin/?ref=repository-badge)
-
----
-
 ## 项目简介
 
-Admin 是一个基于 Vue3 + Vite + TypeScript 的前端类似 discord 交友聊天项目，使用了 Vue Router、Vuex、Element Plus 等主流框架和库，项目采用了模块化、组件化、工程化的开发模式。
+Admin 是一个基于 React18、react-router、axios、antd、echarts 开源的后台管理系统，本项目使用了常用的一些功能，比如动态路由，状态持久化，全局布局的修改，大屏展示等，另外本项目也封装了一些常用组件，比如复制，水印等。
 
 
 ## 在线预览
@@ -32,7 +14,13 @@ Admin 是一个基于 Vue3 + Vite + TypeScript 的前端类似 discord 交友聊
 - GitHub(https://github.com/wssmw/CMSAdmin.git)
 
 ## 项目功能
--
+-基于axios对请求进行二次封装（请求拦截、取消）
+-支持组件国际化，主题切换等（未完成）
+-常用自定义指令开发（权限、复制、水印、拖拽、节流、防抖、长按…）
+-实现状态持久化，刷新不会丢失状态
+-引入styled-components使用css in js技术进行css的编写
+-自定义hooks实现动态路由
+
 
 ## 快速上手
 
@@ -65,3 +53,27 @@ npm run build
 
 
 ## 文件资源目录
+
+```text
+Admin
+├─ public                 # 静态资源文件（该文件夹不会被打包）
+├─ src
+│  ├─ assets              # 静态资源文件
+│  ├─ components          # 全局组件
+│  ├─ hooks               # 常用 Hooks 封装
+│  ├─ layouts             # 框架布局模块
+│  ├─ router              # 路由管理
+│  ├─ store               # pinia store
+│  ├─ service             # 接口管理，包括封装axios
+│  ├─ utils               # 常用工具库
+│  ├─ views               # 项目所有页面
+│  ├─ App.jsx             # 项目主组件
+│  ├─ index.js            # 项目入口文件
+│  ├─ style.js            # App.js的css文件
+├─ .env                   # vite 常用配置
+├─ .gitignore             # 忽略 git 提交
+├─ package-lock.json      # 依赖包包版本锁
+├─ package.json           # 依赖包管理
+├─ README.md              # README 介绍
+├─ craco.config.js        # craco 全局配置
+```
