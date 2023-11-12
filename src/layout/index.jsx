@@ -21,6 +21,8 @@ const MyLayout = memo(() => {
   const isHasTabsIcon = useSelector((state)=>state.theme.isHasTabsIcon)
   const footer = useSelector((state)=>state.theme.footer)
   const styleSetting = useSelector((state)=>state.theme.styleSetting)
+  const isGrey = useSelector((state)=>state.theme.isGrey)
+  const isWeak = useSelector((state)=>state.theme.isWeak)
   const dispatch = useDispatch()
   const navgate = useNavigate();
   const {pathname} = useLocation();
@@ -45,7 +47,7 @@ const MyLayout = memo(() => {
     }
   };  
   return (
-    <LayoutWrapper>
+    <LayoutWrapper style={{filter:`grayscale(${isGrey?1:0}) invert(${isWeak?80:0}%)`}}>
       {
         pathname==='/dataScreen'?<DataScreen/>:<Layout className='layout'>
         <Sider theme={styleSetting} collapsed={collapsedMenu}>

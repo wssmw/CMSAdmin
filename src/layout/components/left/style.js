@@ -15,7 +15,7 @@ export const LeftWrapper = styled.div`
     .dec {
       margin:0 10px;
       color:black;
-      font-weight:900;
+      font-weight:600;
       font-size:30px;
     }
   }

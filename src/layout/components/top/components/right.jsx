@@ -7,7 +7,7 @@ import {
   PoweroffOutlined,
   BellOutlined
 } from '@ant-design/icons'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { changeTokenAction } from '../../../../store/modules/login'
 import cache from '../../../../utils/cache'

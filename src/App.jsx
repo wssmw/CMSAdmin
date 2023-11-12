@@ -1,32 +1,20 @@
-import { useLocation, useNavigate, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import { AppWrapper } from "./style";
-import { useEffect } from "react";
 import {useLoadRouter} from "./hooks/useLoadRouter";
-import cache from "./utils/cache";
 import { ConfigProvider } from "antd";
-import { useTheme } from './hooks/useTheme';
+import { useSelector } from "react-redux";
+
+import enUS from 'antd/locale/en_US';
+import zhCN from 'antd/locale/zh_CN';
 
 
 function App() {
     const routes = useLoadRouter();
-    const navgate = useNavigate();
-    const location = useLocation();
-    const { initTheme } = useTheme()
-    initTheme()
-    useEffect(()=>{
-        //路由守卫判断
-        if(location.pathname!=='/login'&&cache.getCache('token')===undefined){
-          navgate('/login') 
-        }
-        else {
-          if(location.pathname==='/'){
-            navgate('/home/index')
-          }
-        }
-    },[navgate])
+    const  primary  = useSelector((state) => ( state.theme.primary))
+    const  language  = useSelector((state) => ( state.theme.language))
     return (
       <AppWrapper>
-        <ConfigProvider direction='ltr'>
+        <ConfigProvider direction='ltr' theme={{token:{colorPrimary:primary}}} locale={language=='zhCN'?zhCN:enUS}>
           {useRoutes(routes)}
         </ConfigProvider>
       </AppWrapper>

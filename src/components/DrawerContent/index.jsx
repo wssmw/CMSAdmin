@@ -10,7 +10,10 @@ import {
     changeIsHasTabsAction,
     changeIsHasTabsIconAction,
     changeFooterAction, 
-    changeStyleSettingAction
+    changeStyleSettingAction,
+    changePrimaryAction,
+    changeIsGreyAction,
+    changeIsWeakAction
 } from '../../store/modules/theme'
 const DrawerContent = memo((props) => {
     let colorList = [
@@ -55,14 +58,9 @@ const DrawerContent = memo((props) => {
     const  isHasTabsIcon  = useSelector((state) => ( state.theme.isHasTabsIcon))
     const  footer  = useSelector((state) => ( state.theme.footer))
     const  styleSetting  = useSelector((state) => ( state.theme.styleSetting))
-    const selectColor = () =>{
-        alert(6)
-        ConfigProvider.config({
-            theme: {
-                primaryColor: 'red'
-            }
-        });
-    }
+    const  primary  = useSelector((state) => ( state.theme.primary))
+    const  isWeak  = useSelector((state) => ( state.theme.isWeak))
+    const  isGrey  = useSelector((state) => ( state.theme.isGrey))
     return (
         <DrawerContentWrapper>
             <Divider className='divider' plain><FireOutlined />风格设置</Divider>
@@ -139,10 +137,12 @@ const DrawerContent = memo((props) => {
                 {
                     colorList.map((item)=>{
                         return <Tooltip key={item.desc} title={item.desc}>
-                            <div className="icon" style={{backgroundColor:item.color}} onClick={()=>selectColor()}>
-                                <span className="select-icon">
+                            <div className="icon" style={{backgroundColor:item.color}} onClick={()=>dispatch(changePrimaryAction(item.color))}>
+                                {
+                                item.color===primary&&<span className="select-icon">
                                     <CheckOutlined />
                                 </span>
+                                }
                             </div>
                             
                     </Tooltip>
@@ -151,11 +151,11 @@ const DrawerContent = memo((props) => {
             </div>
             <div className="theme-item-Horizontal">
                 <span>灰色模式</span>
-                <Switch size='small'/>
+                <Switch checked={isGrey} size='small' onChange={(key)=>dispatch(changeIsGreyAction(key))}/>
             </div>
             <div className="theme-item-Horizontal">
-                <span>灰色模式</span>
-                <Switch size='small'/>
+                <span>色弱模式</span>
+                <Switch checked={isWeak} size='small' onChange={(key)=>dispatch(changeIsWeakAction(key))}/>
             </div>
             <Divider className='divider'><SettingOutlined />界面设置</Divider>
             <div className="theme-item-Horizontal">

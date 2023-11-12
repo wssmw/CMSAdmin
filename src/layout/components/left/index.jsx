@@ -73,8 +73,8 @@ const Left = memo((props) => {
   return (
     <LeftWrapper>
       <div className="logo">
-        <img src="/img/logo.jpg" alt="" />
-        {!collapsedMenu && <div className="dec">Admin</div>}
+        <img src={styleSetting==='dark'?'/img/logo-dark.png':'/img/logo.png'} alt="" />
+        {!collapsedMenu && <div style={{color:styleSetting=='dark'?'#ccc':'black'}} className="dec">Admin</div>}
       </div>
       <div className="scroll">
         <Menu theme={styleSetting} items={items} mode='inline' onClick={(e)=>menuClick(e)} selectedKeys={[tabsActivekey]}/>

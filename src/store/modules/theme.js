@@ -19,13 +19,15 @@ const themeSlice = createSlice({
     // 是否显示页脚
     footer:true,
     // 风格切换
-    styleSetting:'dark',
+    styleSetting:'light',
     // 色弱模式
     isWeak:false,
     // 灰色模式
     isGrey:false,
     // 主题颜色
-    primary:'red'
+    primary:'#2449ff',
+    // 国际化（中英文切换）
+    language:'zhCN'
   },
   reducers: {
     changeDrawerVisibleAction(state, { payload }) {
@@ -52,6 +54,21 @@ const themeSlice = createSlice({
     changeStyleSettingAction(state, { payload }) {
       state.styleSetting = payload;
     },
+    changePrimaryAction(state, { payload }) {
+      state.primary = payload;
+    },
+    changeIsGreyAction(state, { payload }) {
+      if(payload==true){
+        state.isWeak = false
+      }
+      state.isGrey = payload;
+    },
+    changeIsWeakAction(state, { payload }) {
+      if(payload==true){
+        state.isGrey = false
+      }
+      state.isWeak = payload;
+    },
   },
 });
 
@@ -63,7 +80,10 @@ export const {
   changeIsHasTabsAction,
   changeIsHasTabsIconAction,
   changeFooterAction,
-  changeStyleSettingAction
+  changeStyleSettingAction,
+  changePrimaryAction,
+  changeIsGreyAction,
+  changeIsWeakAction
 } = themeSlice.actions;
 
 export default themeSlice.reducer;
