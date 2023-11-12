@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Admin
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- ![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E7%BB%B4%E6%8A%A4%E4%B8%AD-brightgreen) -->
+<!--![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E5%B0%B1%E7%BB%AA-orange)-->
 
-## Available Scripts
+![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E4%B8%AD-green)<!--![](https://img.shields.io/badge/%E7%8A%B6%E6%80%81-%E5%B0%B1%E7%BB%AA-orange)-->
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![](https://img.shields.io/crates/l/s)](https://img.shields.io/crates/l/s)
+![](https://img.shields.io/badge/Vue-%5E3.2.47-success)
+![](https://img.shields.io/badge/Node-%20%5E16.18.0-brightgreen)
+![](https://img.shields.io/badge/Vite-%20%5E4.1.4-brightgreen)
+![](https://img.shields.io/badge/npm-%5E9.5.1-orange)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+[![Netlify Status](https://api.netlify.com/api/v1/badges/957f0479-bb9e-498b-bc9d-2ba1b513dd54/deploy-status)](https://app.netlify.com/sites/cheery-unicorn-b76380/deploys)
+[![DeepSource](https://deepsource.io/gh/School-of-Website-Engineering/Admin.svg/?label=active+issues&show_trend=true&token=y_ZjbP8TmVGwwkuKPdl67NZO)](https://deepsource.io/gh/School-of-Website-Engineering/Admin/?ref=repository-badge)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 项目简介
 
-### `npm test`
+Admin 是一个基于 Vue3 + Vite + TypeScript 的前端类似 discord 交友聊天项目，使用了 Vue Router、Vuex、Element Plus 等主流框架和库，项目采用了模块化、组件化、工程化的开发模式。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 在线预览
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-[在线预览](http://47.93.103.147:8080/#/home/index)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 相关仓库
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- GitHub(https://github.com/wssmw/CMSAdmin.git)
 
-### `npm run eject`
+## 项目功能
+-
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 快速上手
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Clone：**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```text
+# GitHub
+git clone https://github.com/wssmw/CMSAdmin.git
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Install:**
 
-## Learn More
+```text
+npm install 
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Run:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```text
+npm run start 
+```
 
-### Code Splitting
+- **Build:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```text
+npm run build 
+```
 
-### Analyzing the Bundle Size
+## 项目截图
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 文件资源目录
