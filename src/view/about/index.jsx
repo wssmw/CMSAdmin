@@ -12,7 +12,7 @@ const About = memo(() => {
     <AboutWrapper>
       <div className='Descriptions'>
         <h2>项目简介</h2>
-        <p>66666666666</p>
+        <p>Admin 是一个基于 React18、react-router、axios、antd、echarts 开源的后台管理系统，本项目使用了常用的一些功能，比如动态路由，状态持久化，全局布局的修改，大屏展示等，另外本项目也封装了一些常用组件，比如复制，水印等。</p>
       </div>
       <Descriptions className='Descriptions' bordered title="项目信息">
         <DescriptionsItem span={2} label='版本号'>{version}</DescriptionsItem>

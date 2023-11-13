@@ -5,7 +5,7 @@ import md5 from 'js-md5'
 import { useDispatch } from 'react-redux'
 import { changeTokenAction, fetchHomeDataAction } from '../../../../store/modules/login'
 import { loginApi } from '../../../../service/module/login'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 import cache from '../../../../utils/cache'
 
 const AccountLogin = memo(() => {

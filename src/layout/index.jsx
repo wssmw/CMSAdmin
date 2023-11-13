@@ -61,7 +61,6 @@ const MyLayout = memo(() => {
             <Tabs
               type="editable-card"
               items={tabs.map(({title,icon,key,closable}) => {
-                console.log('zzzz',isHasTabsIcon)
                 return {
                   label: (
                     <span className="tabsIcon">

@@ -2,44 +2,19 @@ import { memo, useRef } from 'react'
 import { RightWrapper } from './style'
 import { Tabs, Badge, Dropdown, Popover, Empty } from 'antd'
 import {
-  UserOutlined, 
-  FormOutlined,
-  PoweroffOutlined,
-  BellOutlined
+  BellOutlined, SkinOutlined
 } from '@ant-design/icons'
-import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { changeTokenAction } from '../../../../store/modules/login'
 import cache from '../../../../utils/cache'
+import Avatar from '../../../../components/Avatar'
+import Language from '../../../../components/Language'
+import ThemeSize from '../../../../components/ThemeSize'
+import { changeDrawerVisibleAction } from '../../../../store/modules/theme'
 
 const Right = memo(() => {
   const bellOutlinedRef = useRef()
   const dispatch = useDispatch()
-  // const navgate = useNavigate();
-
-  // 头像拓展部分
-  //缩小 <CompressOutlined />
-  // 放大 <ExpandOutlined />
-  const items = [
-    {
-      label: '个人信息',
-      key: '0',
-      icon: <UserOutlined />
-    },
-    {
-      label: '修改密码',
-      key: '1',
-      icon: <FormOutlined />
-    },
-    {
-      type: 'divider',
-    },
-    {
-      label: '退出登录',
-      key: '3',
-      icon: <PoweroffOutlined />
-    },
-  ];
   const message = [
     {
       key: '1',
@@ -84,17 +59,18 @@ const Right = memo(() => {
 
   return (
     <RightWrapper>
+      <ThemeSize/>
+      <Language/>
+      <SkinOutlined style={{fontSize:'25px',margin:'0 10px'}} onClick={()=>dispatch(changeDrawerVisibleAction(true))}/>
       <Popover trigger="click" content={content}>
-        <Badge count={5}>
-          <BellOutlined style={{ fontSize: "25px" }} ref={bellOutlinedRef}/>
-        </Badge>
+        <div style={{margin:'0 10px',display:'flex',alignItems:'center'}}>
+          <Badge count={5}>
+            <BellOutlined style={{ fontSize: "25px" }} ref={bellOutlinedRef}/>
+          </Badge>
+        </div>
       </Popover>
       <div className="name">WSS</div>
-      <Dropdown menu={{ items,onClick }} trigger={['click']}>
-        <div className="avatar">
-          <img src="/img/avatar.jpg" alt="" />
-        </div>
-      </Dropdown>
+      <Avatar/>
     </RightWrapper>
   )
 })

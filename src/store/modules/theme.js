@@ -1,6 +1,7 @@
 /** @format */
 
 import { createSlice } from "@reduxjs/toolkit";
+import { CHINESE } from "../../config/Laguage";
 const themeSlice = createSlice({
   name: "main",
   initialState: {
@@ -27,7 +28,11 @@ const themeSlice = createSlice({
     // 主题颜色
     primary:'#2449ff',
     // 国际化（中英文切换）
-    language:'zhCN'
+    language:CHINESE,
+    // 尺寸
+    size:'middle',
+    // 布局切换 -->  纵向：vertical | 经典：classic | 横向：transverse | 分栏：columns
+		layout: "vertical",
   },
   reducers: {
     changeDrawerVisibleAction(state, { payload }) {
@@ -69,6 +74,12 @@ const themeSlice = createSlice({
       }
       state.isWeak = payload;
     },
+    changeLanguageAction(state, { payload }) {
+      state.language = payload;
+    },
+    changeSizeAction(state, { payload }) {
+      state.size = payload;
+    },
   },
 });
 
@@ -83,7 +94,9 @@ export const {
   changeStyleSettingAction,
   changePrimaryAction,
   changeIsGreyAction,
-  changeIsWeakAction
+  changeIsWeakAction,
+  changeLanguageAction,
+  changeSizeAction
 } = themeSlice.actions;
 
 export default themeSlice.reducer;

@@ -61,6 +61,7 @@ const DrawerContent = memo((props) => {
     const  primary  = useSelector((state) => ( state.theme.primary))
     const  isWeak  = useSelector((state) => ( state.theme.isWeak))
     const  isGrey  = useSelector((state) => ( state.theme.isGrey))
+    const  layout  = useSelector((state) => ( state.theme.layout))
     return (
         <DrawerContentWrapper>
             <Divider className='divider' plain><FireOutlined />风格设置</Divider>
@@ -102,33 +103,39 @@ const DrawerContent = memo((props) => {
                 <Tooltip title={'侧边菜单布局'}>
                     <div className="ant-gw-checkbox-item ant-gw-checkbox-item-side">
                         <div className="inner"></div>
-                        <span className="anticon anticon-check select-icon">
-                            <CheckOutlined />
-                        </span>
+                        {
+                            layout=='vertical'&&<span className="anticon anticon-check select-icon">
+                                <CheckOutlined />
+                            </span>
+                        }
                     </div>
                 </Tooltip>
-                <Tooltip title={'顶部菜单布局'}>
+                <Tooltip title={'顶部菜单布局(暂不支持)'}>
                     <div className="ant-gw-checkbox-item ant-gw-checkbox-item-top">
                         <div className="inner"></div>
-                        <span className="anticon anticon-check select-icon" >
-                            <CheckOutlined />
-                        </span>
+                        {
+                            layout=='classic'&&<span className="anticon anticon-check select-icon" >
+                                <CheckOutlined />
+                            </span>
+                        }
                     </div>
                 </Tooltip>
                 <Tooltip title={'混合布局(暂不支持)'}>
                     <div className="ant-gw-checkbox-item ant-gw-checkbox-item-mix" >
                         <div className="inner"></div>
-                        <span className="anticon anticon-check select-icon" >
+                        {layout=='transverse'&&<span className="anticon anticon-check select-icon" >
                             <CheckOutlined />
-                        </span>
+                        </span>}
                     </div>
                 </Tooltip>
                 <Tooltip title={ '左侧混合布局(暂不支持)'}>
                     <div className="ant-gw-checkbox-item ant-gw-checkbox-item-left" >
                         <div className="inner"></div>
-                        <span className="anticon anticon-check select-icon">
-                            <CheckOutlined />
-                        </span>
+                        {
+                            layout=='columns'&&<span className="anticon anticon-check select-icon">
+                                <CheckOutlined />
+                            </span>
+                        }
                     </div>
                 </Tooltip>
             </div>
