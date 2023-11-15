@@ -92,8 +92,8 @@ const MyLayout = memo(() => {
         
       </Layout>
       }
-      <ThemeButton/>
-      <ThemeDrawer/>
+      {/* <ThemeButton/>
+      <ThemeDrawer/> */}
     </LayoutWrapper>
   )
 })

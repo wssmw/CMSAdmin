@@ -833,7 +833,6 @@ export const fetchHomeDataAction = createAsyncThunk("fetchdata", (payload, { dis
   })
 })
 
-console.log(cache.getCache('menu'),'menu');
 const loginSlice = createSlice({
   name: "login",
   initialState: {

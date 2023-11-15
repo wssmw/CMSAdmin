@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
 export const LayoutWrapper = styled.div`
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
+  width:100%;
+  height:100%;
   background-color:#fff;
   .layout {
     height:100%;
@@ -22,7 +19,7 @@ export const LayoutWrapper = styled.div`
         } 
       }
       .content {
-        min-width:1000px;
+        /* min-width:1000px; */
         background-color:#f0f2f5;
         padding:5px;
       overflow-y:auto;

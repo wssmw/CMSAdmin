@@ -94,10 +94,6 @@ const DataScreen = memo(() => {
 
                   <img src="./images/dataScreen-title.png" alt="" />
                 </div>
-                {/* <!-- chart区域 --> */}
-                <div className="dataScreen-main-chart">
-                  {/* <AgeRatioChart ref="AgeRatioRef" /> */}
-                </div>
               </div>
             </div>
             <div className="dataScreen-ct">

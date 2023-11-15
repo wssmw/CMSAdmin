@@ -32,12 +32,7 @@ const Language = memo((props) => {
     }
   ];
   const onClick = ({key}) =>{
-    console.log(key)
-    // if(key==3){
-    //   cache.deleteCache('token')
       dispatch(changeLanguageAction(key))
-    //   navgate('/login')
-    // }
   }
   return (
     <LanguageWrapper>

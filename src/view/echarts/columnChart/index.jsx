@@ -1,5 +1,6 @@
 import React, { memo, useEffect } from 'react'
 import * as echarts from 'echarts';
+import { useEcharts } from '../../../hooks/useEcharts';
 const Column = memo(() => {
   let option = {
 		tooltip: {
@@ -117,16 +118,11 @@ const Column = memo(() => {
 			}
 		]
 	};
-  useEffect(()=>{
-    let myEcharts = echarts.init(document.querySelector('.main'))
-    myEcharts.setOption(option)
-    return () => {
-      myEcharts.dispose()
-    }
-  })
   return (
     <div style={{height:"100%",backgroundColor:"white",padding:"20px"}}>
-      <div className="main" style={{width:"100%",height:"100%"}}></div>
+		{
+			useEcharts(option)
+		}
     </div>
   )
 })

@@ -4,10 +4,8 @@ import pak from '../../../package.json'
 import { Descriptions } from 'antd'
 import DescriptionsItem from 'antd/es/descriptions/Item'
 const { name, version, dependencies } = pak
-console.log(pak)
 const About = memo(() => {
   const date = new Date()
-  console.log(date);
   return (
     <AboutWrapper>
       <div className='Descriptions'>
@@ -17,10 +15,10 @@ const About = memo(() => {
       <Descriptions className='Descriptions' bordered title="项目信息">
         <DescriptionsItem span={2} label='版本号'>{version}</DescriptionsItem>
         <DescriptionsItem span={2} label='发布时间'>{date.toString()}</DescriptionsItem>
-        <DescriptionsItem span={2} label='gitee'>gitee</DescriptionsItem>
-        <DescriptionsItem span={2} label='github'>github</DescriptionsItem>
-        <DescriptionsItem span={2} label='文档地址'>文档地址</DescriptionsItem>
-        <DescriptionsItem span={2} label='预览地址'>预览地址</DescriptionsItem>
+        <DescriptionsItem span={2} label='gitee'><a href="https://gitee.com/wangsaiqimengwen/cmsadmin.git">gitee</a></DescriptionsItem>
+        <DescriptionsItem span={2} label='github'><a href="https://github.com/wssmw/CMSAdmin.git">github</a></DescriptionsItem>
+        <DescriptionsItem span={2} label='文档地址'>文档地址（暂无）</DescriptionsItem>
+        <DescriptionsItem span={2} label='预览地址'><a href="http://47.93.103.147:8080/#/home/index">预览地址</a></DescriptionsItem>
       </Descriptions>
       <Descriptions className='Descriptions' bordered title="生产环境依赖">
         {

@@ -23,7 +23,6 @@ const UseProTable = memo(() => {
       role:roleValue,
       status:statusValue
     }).then(res=>{
-      console.log(res,'res');
       setTableList(res.data.list)
       let newPaginationInfo = paginationInfo
       newPaginationInfo.total = res.data.total
@@ -146,7 +145,6 @@ const UseProTable = memo(() => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   const onSelectChange = (newSelectedRowKeys) => {
-    console.log('selectedRowKeys changed: ', newSelectedRowKeys);
     setSelectedRowKeys(newSelectedRowKeys);
   };
   const rowSelection = {
@@ -197,12 +195,10 @@ const UseProTable = memo(() => {
     current:0
   })
   const paginationChange = (page,pageSize) =>{
-    console.log(page,pageSize); 
     getTableList({
       pageSize,
       pageNum:page
     }).then(res=>{
-      console.log(res,'res');
       setTableList(res.data.list)
       let newPaginationInfo = paginationInfo
       newPaginationInfo.total = res.data.total
@@ -211,7 +207,6 @@ const UseProTable = memo(() => {
       setPaginationInfo(newPaginationInfo)
     })
   }
-  console.log(tableList,tableHeight,paginationInfo);
   return (
     <UseProTableWrapper ref={divRef} style={{padding:'10px',background:'white',height:'100%'}}>
       <div style={{margin:'10px 0 20px 0'}}>
