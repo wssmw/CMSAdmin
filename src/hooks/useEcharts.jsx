@@ -3,19 +3,28 @@ import * as echarts from 'echarts';
 import { useRef } from "react";
 export const useEcharts = (options) =>{
     const mainRef = useRef()
+    let myEcharts = useRef()
     useEffect(()=>{
-        const myEcharts = echarts.init(mainRef.current)
-        myEcharts.setOption(options)
+        myEcharts.current = echarts.init(mainRef.current)
+        myEcharts.current.setOption(options)
+        debugger
+        myEcharts.current.resize()
+
         window.addEventListener('resize',()=>{
-            myEcharts.resize()
+            myEcharts.current.resize()
         })
         return () =>{
             window.removeEventListener('resize',()=>{
-                myEcharts.resize()
+                myEcharts.current.resize()
             })
-            myEcharts.dispose()
+            myEcharts.current.dispose()
         }
     },[])
+    useEffect(()=>{
+        myEcharts.current.resize()
+
+        myEcharts.current.setOption(options)
+    },[options])
     return (
         <div ref={mainRef} className="main" style={{width:'100%',height:'100%'}}></div>
     )

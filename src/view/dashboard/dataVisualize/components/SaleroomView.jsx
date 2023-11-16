@@ -2,6 +2,7 @@ import { Card } from 'antd'
 import React, { memo, useEffect } from 'react'
 import * as echarts from 'echarts';
 import { useRef } from 'react';
+import { useEcharts } from '../../../../hooks/useEcharts';
 const SaleroomView = memo(() => {
   let option = {
 		title: {},
@@ -66,18 +67,21 @@ const SaleroomView = memo(() => {
 			}
 		]
 	};
-	const echartRef = useRef()
-  useEffect(()=>{
-	setTimeout(()=>{
-		let myEcharts = echarts.init(echartRef.current)	
-    	myEcharts.setOption(option)
-	},20)
+//   useEffect(()=>{
+// 	setTimeout(()=>{
+// 		let myEcharts = echarts.init(echartRef.current)	
+//     	myEcharts.setOption(option)
+// 	},20)
     
-  },[])
+//   },[])
   return (
     <div>
       <Card title="销售额">
-        <div ref={echartRef} className="SaleroomView_main" style={{width:"100%",height:"300px"}}></div>
+		<div style={{width:'100%',height:'300px'}}>
+			{
+				useEcharts(option)
+			}
+		</div>
       </Card>
     </div>
   )

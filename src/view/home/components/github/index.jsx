@@ -1,15 +1,11 @@
 import { Card } from 'antd'
 import React, { memo, useEffect, useRef } from 'react'
-import * as echarts from 'echarts';
+import { useEcharts } from '../../../../hooks/useEcharts';
+import { useState } from 'react';
 
 
 const Github = memo(() => {
-  const mainRef = useRef()
-  const pieData = [
-    { value: 4524, name: "Gitee 访问量" },
-    { value: 8616, name: "GitHub 访问量" }
-  ];
-  const option = {
+  const [option,setOption] = useState({
 		title: {
 			text: "Gitee / GitHub",
 			subtext: "访问占比",
@@ -62,7 +58,7 @@ const Github = memo(() => {
 				silent: true,
 				clockwise: true,
 				startAngle: 150,
-				data: pieData,
+				data: [],
 				labelLine: {
 					length: 80,
 					length2: 30,
@@ -116,23 +112,25 @@ const Github = memo(() => {
 				]
 			}
 		]
-	};
-  useEffect(() => {
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(mainRef.current);
-    // 绘制图表
-    myChart.setOption(option);
-    return () => {
-      // myChart.dispose() 销毁实例。实例销毁后无法再被使用
-      myChart.dispose()
-  }
-  }, [])
-
+	});	
+  useEffect(()=>{
+	setTimeout(()=>{
+		let newOption ={...option}
+		newOption.series[0].data =  [
+			{ value: 4524, name: "Gitee 访问量" },
+			{ value: 8616, name: "GitHub 访问量" }
+		]
+		setOption(newOption)
+	},1000)
+  },[])
   return (
     <div>
       <Card title={"Gitee / GitHub 访问量占比"}>
-        <div className="main" ref = {mainRef} style={{width:"500px",height:"350px"}}>
-        </div>
+		<div style={{width:"400px",height:"350px"}}>
+			{
+				useEcharts(option)
+			}
+		</div>
       </Card>
     </div>
   )

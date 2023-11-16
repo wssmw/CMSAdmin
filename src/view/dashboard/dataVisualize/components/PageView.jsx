@@ -2,7 +2,7 @@
 
 import { Card } from "antd";
 import React, { memo, useEffect, useRef } from "react";
-import * as echarts from "echarts";
+import { useEcharts } from "../../../../hooks/useEcharts";
 const PageView = memo(() => {
   let option = {
     tooltip: {
@@ -81,21 +81,14 @@ const PageView = memo(() => {
       },
     ],
   };
-  let echartRef = useRef();
-  useEffect(() => {
-    setTimeout(() => {
-      let myEcharts = echarts.init(echartRef.current);
-      myEcharts.setOption(option);
-    }, 20);
-  }, []);
   return (
     <div>
       <Card title="访问量">
-        <div
-          ref={echartRef}
-          className="Page_main"
-          style={{ width: "100%", height: "300px" }}
-        ></div>
+        <div style={{width:'100%',height:'300px'}}>
+          {
+            useEcharts(option)
+          }
+        </div>
       </Card>
     </div>
   );

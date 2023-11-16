@@ -1,6 +1,7 @@
 import { Card } from 'antd'
 import React, { memo, useEffect } from 'react'
 import * as echarts from 'echarts';
+import { useEcharts } from '../../../../hooks/useEcharts'
 const AccessScorce = memo(() => {
   let option = {
 		color: ["#59A2FE", "#FFB717", "#FC8F6B", "#70E07B", "#FBDA3D", "#11E5F1", "#E3A0FF"],
@@ -86,17 +87,15 @@ const AccessScorce = memo(() => {
 			}
 		]
 	};
-
-  useEffect(()=>{
-    setTimeout(()=>{
-		let myEcharts = echarts.init(document.querySelector('.AccessScorce_main'))
-    	myEcharts.setOption(option)
-	},20)
-  })
   return (
     <div>
       <Card title="访问来源">
-        <div className="AccessScorce_main" style={{width:"100%",height:"300px"}}></div>
+		<div style={{width:'100%',height:"300px"}}>
+			{
+				useEcharts(option)
+			}
+		</div>
+        
       </Card>
     </div>
   )
